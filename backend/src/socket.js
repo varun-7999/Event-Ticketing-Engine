@@ -1,11 +1,16 @@
+const { allowedOrigins, isOriginAllowed } = require('./config/origins');
+
 let ioInstance = null;
 
 const initSocket = (server) => {
   const { Server } = require('socket.io');
-  const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:5174'].filter(Boolean);
   ioInstance = new Server(server, {
     cors: {
-      origin: allowedOrigins,
+      origin: (origin, callback) => {
+        if (isOriginAllowed(origin)) return callback(null, true);
+        console.error(`[Socket.IO] Blocked origin "${origin}". Allowed origins: ${allowedOrigins.join(', ')}`);
+        return callback(null, false);
+      },
       credentials: true,
     },
   });

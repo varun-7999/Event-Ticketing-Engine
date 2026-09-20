@@ -8,15 +8,16 @@ const eventRoutes = require('./routes/event.routes');
 const seatRoutes = require('./routes/seat.routes');
 const bookingRoutes = require('./routes/booking.routes');
 const { handlePaymentWebhook } = require('./controllers/booking.controller');
-const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:5174'].filter(Boolean);
+const { allowedOrigins, isOriginAllowed } = require('./config/origins');
 // 1. Require event routes
 const app = express();
 app.use(helmet());
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-      return callback(new Error('Origin is not allowed by CORS'));
+      if (isOriginAllowed(origin)) return callback(null, true);
+      console.error(`[CORS] Blocked origin "${origin}". Allowed origins: ${allowedOrigins.join(', ')}`);
+      return callback(null, false);
     },
     credentials: true,
   })
