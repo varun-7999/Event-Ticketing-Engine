@@ -1,0 +1,107 @@
+# =============================================================================
+# Event Ticketing Engine - MERN monorepo ignore rules
+#   frontend/  React 19 + Vite 7 (Tailwind v4)
+#   backend/   Node + Express + Mongoose (Socket.IO, Razorpay, Nodemailer)
+#
+# Mirror of the workspace-root .gitignore so this project folder also works as a
+# standalone repository (git init inside "event-ticketing-engine/"). Keep the two
+# files in sync, or delete this one if you only track from the workspace root.
+#
+# Every pattern below is either depth-agnostic ("node_modules/") or starts with
+# "**/", so the file behaves identically at either repository root.
+#
+# Inspect why a file is ignored with:  git check-ignore -v <path>
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. Node dependencies
+# -----------------------------------------------------------------------------
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+
+# -----------------------------------------------------------------------------
+# 2. Environment variables - never commit real secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Explicit nested rules for this monorepo's two apps
+**/backend/.env
+**/backend/.env.*
+!**/backend/.env.example
+**/frontend/.env
+**/frontend/.env.*
+!**/frontend/.env.example
+
+# -----------------------------------------------------------------------------
+# 3. Build output and caches
+# -----------------------------------------------------------------------------
+dist/
+dist-ssr/
+build/
+out/
+.vite/
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+*.tsbuildinfo
+coverage/
+.nyc_output/
+
+# -----------------------------------------------------------------------------
+# 4. Logs
+# -----------------------------------------------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# -----------------------------------------------------------------------------
+# 5. Generated/runtime content inside tracked folders
+#    (.gitkeep keeps the folder itself in version control)
+# -----------------------------------------------------------------------------
+**/uploads/*
+!**/uploads/.gitkeep
+**/logs/*
+!**/logs/.gitkeep
+
+# -----------------------------------------------------------------------------
+# 6. Editor metadata
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.fleet/
+.history/
+
+# -----------------------------------------------------------------------------
+# 7. OS metadata
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# -----------------------------------------------------------------------------
+# 8. Keys, certificates and deployment artefacts
+# -----------------------------------------------------------------------------
+*.pem
+*.p12
+.mongodb-binaries/
+.vercel/
+.netlify/

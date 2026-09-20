@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #020617;
+  color: #e2e8f0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  margin-top: 0.4rem;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  background: #0f172a;
+  padding: 0.7rem 0.8rem;
+  color: #f8fafc;
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+
+.home-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(125deg, rgba(8, 47, 73, 0.5), transparent 42%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.16), transparent 28%),
+    #020617;
+}
+
+.home-glow {
+  position: absolute;
+  width: 42rem;
+  height: 18rem;
+  right: -8rem;
+  bottom: 12%;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 90px rgba(20, 184, 166, 0.12);
+  transform: rotate(-12deg);
+}
+
+.home-content {
+  position: relative;
+  max-width: 42rem;
+  padding: 18vh 8vw;
+}
+
+.eyebrow {
+  color: #5eead4;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+}
+
+.home-content h1 {
+  max-width: 38rem;
+  margin: 1.25rem 0;
+  color: #f8fafc;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.home-copy {
+  max-width: 31rem;
+  color: #94a3b8;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.primary-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid #2dd4bf;
+  border-radius: 0.55rem;
+  background: #14b8a6;
+  color: #042f2e;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary-link:hover {
+  background: #5eead4;
+}
+
+.setup-note {
+  margin-top: 1rem;
+  color: #64748b;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .home-content {
+    padding: 16vh 1.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 3.75rem;
+  }
+}
