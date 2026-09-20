@@ -1,5 +1,5 @@
 const express = require('express');
-const { createPaymentOrder, verifyPayment, markPaymentFailed, getMyBookings } = require('../controllers/Booking.controller');
+const { createPaymentOrder, verifyPayment, markPaymentFailed, getMyBookings } = require('../controllers/booking.controller');
 const { protect } = require('../middleware/auth.middleware');
 
 const router = express.Router();

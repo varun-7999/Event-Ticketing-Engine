@@ -7,7 +7,7 @@ const authRoutes = require('./routes/auth.routes');
 const eventRoutes = require('./routes/event.routes'); 
 const seatRoutes = require('./routes/seat.routes');
 const bookingRoutes = require('./routes/booking.routes');
-const { handlePaymentWebhook } = require('./controllers/Booking.controller');
+const { handlePaymentWebhook } = require('./controllers/booking.controller');
 const allowedOrigins = [process.env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:5174'].filter(Boolean);
 // 1. Require event routes
 const app = express();
